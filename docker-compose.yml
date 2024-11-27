@@ -1,0 +1,11 @@
+#Author: YASG07
+
+version: '3.9'
+
+services:
+#Mongo
+  mongo_standalone:
+    image: mongo
+    container_name: mongodb
+    ports:
+      -  "27017:27017"
