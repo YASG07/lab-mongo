@@ -20,7 +20,7 @@ const oficina_schema = new Schema({
         codigo_postal: String
     },
     Envios: [{
-        envido_id: {
+        envio_id: {
             type: Number,
             required: true,
             unique: true
