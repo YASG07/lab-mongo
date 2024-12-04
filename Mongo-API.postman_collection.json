@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "ea994a16-22a2-4dc3-96bb-68dc85978004",
+		"name": "Mongo-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31312936"
+	},
+	"item": [
+		{
+			"name": "oficinas",
+			"item": [
+				{
+					"name": "PostOf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oficina_id\": 7,\n    \"nombre\": \"Oficina Sureste\",\n    \"telefono\": \"+34 902 235 568\",\n    \"email\": \"sureste@empresa.com\",\n    \"direccion\": {\n        \"calle\": \"Calle Mikgalard\",\n        \"numero\": \"202\",\n        \"ciudad\": \"Helghan\",\n        \"codigo_postal\": \"48001\"\n    },\n    \"Envios\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/oficinas/nueva-oficina",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"oficinas",
+								"nueva-oficina"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/oficinas/listar-oficina/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"oficinas",
+								"listar-oficina",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OfPut",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Oficina Helghast\",\n    \"telefono\": \"+34 931 264 167\",\n    \"email\": \"helghast@empresa.com\",\n    \"direccion\": {\n        \"calle\": \"Calle Outerworld\",\n        \"numero\": \"202\",\n        \"ciudad\": \"Helghan\",\n        \"codigo_postal\": \"58021\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/oficinas/actualizar-oficina/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"oficinas",
+								"actualizar-oficina",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DelOf",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/oficinas/eliminar-oficina/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"oficinas",
+								"eliminar-oficina",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "PostCli",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"curp\": \"SAGY020719HNTNRLA\",\n    \"nombre\": \"John\",\n    \"apellidos\": \"Helghast Pride\",\n    \"email\": \"john.hp@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/clientes/nuevo-cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"clientes",
+								"nuevo-cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCli",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/clientes/listar-clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"clientes",
+								"listar-clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/clientes/listar-cliente/abcd890123hdfrll01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"clientes",
+								"listar-cliente",
+								"abcd890123hdfrll01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutCli",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Solari\",\n    \"apellidos\": \"Smith Wesson\",\n    \"email\": \"smith&wesson@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/clientes/actualizar-cliente/sagy020719hntnrla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"clientes",
+								"actualizar-cliente",
+								"sagy020719hntnrla"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DelCli",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/clientes/eliminar-cliente/sagy020719hntnrla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"clientes",
+								"eliminar-cliente",
+								"sagy020719hntnrla"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tiposEnvio",
+			"item": [
+				{
+					"name": "PostTE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tipo_envio_id\": 4,\n    \"tipo\": \"maritimo\",\n    \"precio_por_kilometro\": 5,\n    \"tiempo_estimado\": \"4-7 días\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/tipos-envio/nuevo-tipo-de-envio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"tipos-envio",
+								"nuevo-tipo-de-envio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/tipos-envio/listar-tipos-de-envio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"tipos-envio",
+								"listar-tipos-de-envio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TEPut",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tipo\": \"full\",\n    \"precio_por_kilometro\": 5,\n    \"tiempo_estimado\": \"1-2 días\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/tipos-envio/actualizar-tipo-de-envio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"tipos-envio",
+								"actualizar-tipo-de-envio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DelTE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/paqueteria/tipos-envio/eliminar-tipo-de-envio/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"paqueteria",
+								"tipos-envio",
+								"eliminar-tipo-de-envio",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Query1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/oficinas/listar-oficinas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"oficinas",
+						"listar-oficinas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query3/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query3",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query4/abcd890123hdfrll01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query4",
+						"abcd890123hdfrll01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query5/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query5",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query7",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query8",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/paqueteria/envios/query8/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"paqueteria",
+						"envios",
+						"query8",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

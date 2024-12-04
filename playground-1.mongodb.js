@@ -605,11 +605,11 @@ db.getCollection('clientes').insertMany([
 ]);
 //#endregion
 
-//#region: new collection 'tipo de envio'
-db.createCollection('tipo_de_envio');
+//#region: new collection 'tipo de envios'
+db.createCollection('tipo_de_envios');
 
 //new documents in the collection
-db.getCollection('tipo_de_envio').insertMany([
+db.getCollection('tipo_de_envios').insertMany([
 {
     "tipo_envio_id": 1,
     "tipo": "express",

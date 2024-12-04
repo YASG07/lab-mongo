@@ -6,6 +6,22 @@ services:
 #Mongo
   mongo_standalone:
     image: mongo
-    container_name: mongodb
+    container_name: mongodb01
     ports:
       -  "27017:27017"
+    networks:
+      - redlab
+
+  #redis-cache-database
+  rediscachedb:
+    image: redis/redis-stack
+    container_name: rediscache
+    ports:
+      -  "6379:6379"
+      -  "8001:8001"
+    networks:
+      - redlab
+
+networks:
+  redlab:
+    driver: bridge

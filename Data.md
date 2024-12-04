@@ -609,11 +609,11 @@ db.getCollection('clientes').insertMany([
 ]);
 //#endregion
 
-//#region: new collection 'tipo de envio'
-db.createCollection('tipo_de_envio');
+//#region: new collection 'tipo de envios'
+db.createCollection('tipo_de_envios');
 
 //new documents in the collection
-db.getCollection('tipo_de_envio').insertMany([
+db.getCollection('tipo_de_envios').insertMany([
 {
     "tipo_envio_id": 1,
     "tipo": "express",
@@ -715,7 +715,7 @@ db.getCollection('oficinas').aggregate([
 db.getCollection('oficinas').aggregate([
     {
         $match: {
-          oficina_id: 1
+          oficina_id: 2
         }
     },
     {
@@ -738,6 +738,22 @@ db.getCollection('oficinas').aggregate([
           "curp": "$info_cliente.curp",
           "nombre": "$info_cliente.nombre",
           "apellidos": "$info_cliente.apellidos"
+        }
+    },
+    {
+        $group: {
+            _id: "$curp",
+            curp: { $first: "$curp" },
+            nombre: { $first: "$nombre" },
+            apellidos: { $first: "$apellidos" }
+          }
+    },
+    {
+        $project: {
+          _id: 0,
+          curp: 1,
+          nombre: 1,
+          apellidos: 1
         }
     }
 ])
