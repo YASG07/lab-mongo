@@ -26,7 +26,7 @@ router.get('/listar-cliente/:curp', async (req, res) => {
 
         if (!cliente) {
             res.data = 'Cliente no encontrado'
-            res.status(404).json({ Servidor: 'Oficina no encontrado' }) 
+            res.status(404).json({ Servidor: 'Cliente no encontrado' }) 
         } else {
             res.data = cliente
             res.status(202).json(cliente)
@@ -55,7 +55,7 @@ router.put('/actualizar-cliente/:curp', async (req, res) => {
 
         if (!clienteActualizado) {
             res.data = 'Cliente no encontrado'
-            res.status(404).json({ Servidor: 'Oficina no encontrado' }) 
+            res.status(404).json({ Servidor: 'Cliente no encontrado' }) 
         } else {
             res.data = clienteActualizado
             res.status(202).json(clienteActualizado)
@@ -72,7 +72,7 @@ router.delete('/eliminar-cliente/:curp', async (req, res) => {
 
         if (!clienteEliminado) {
             res.data = 'Cliente no encontrado'
-            res.status(404).json({ Servidor: 'Oficina no encontrado' }) 
+            res.status(404).json({ Servidor: 'Cliente no encontrado' }) 
         } else {
             res.data = clienteEliminado
             res.status(202).json(clienteEliminado)
