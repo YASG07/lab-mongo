@@ -16,8 +16,6 @@ const cliente_schema =  new Schema({
         required: true
     },
     email: String
-},{
-    timestamps: true
 })
 
 const Cliente = model('Cliente', cliente_schema)

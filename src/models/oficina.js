@@ -52,8 +52,6 @@ const oficina_schema = new Schema({
         costo_total: Number,
         Estatus: String
     }]
-}, {
-    timestamps: true
 })
 
 const Oficina = model('Oficina', oficina_schema)

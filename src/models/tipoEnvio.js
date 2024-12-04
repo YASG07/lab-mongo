@@ -10,8 +10,6 @@ const tipo_envio_schema = new Schema({
     tipo: String,
     precio_por_kilometro: Number,
     tiempo_estimado: String
-}, {
-    timestamps: true
 })
 
 const Tipo_de_Envio = model('Tipo_de_Envio', tipo_envio_schema)
