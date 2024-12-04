@@ -1,25 +1,37 @@
+require('dotenv').config()
 const express = require('express')
-const mondongo = require('mongoose')
+const cors = require('cors')
+const morgan = require('morgan')
 
-const server = express()
-server.use(express.json())
+const logger = require('./middleware/logger')
+const { mondongo, redisCon } = require('./config/conexion')
 
-async function conexion() {
-    await mondongo.connect('mongodb://127.0.0.1:27017')
-    .then(() => {
-        console.log('Conexión a MongoDB exitosa')
-    })
-    .catch((error) => {
-        console.error('Error de conexión:', error)
-        return
-    })
-}
+const endpointsCliente = require('./routes/endpointsCliente')
+const endpointsOficina = require('./routes/endpointsOficina')
+const endpointsTipoEnvio = require('./routes/endpointsTipoEnvio')
+const endpointsEnvios = require('./routes/endpointsEnvios')
 
-server.get('/', async (req, res) => {
+const app = express()
+
+app.use(express.json())
+
+app.use(cors())
+
+app.use(morgan('dev'))
+
+app.use(logger)
+
+app.get('/', async (req, res) => {
     res.json({ Mensaje: "Bienvenido al local del host en el puerto 3000" })
 })
 
-server.listen(3000, () => {
-    conexion()
-    console.log('Servidor corriendo en el puerto 3000');
+app.use('/paqueteria/oficinas', endpointsOficina)
+app.use('/paqueteria/clientes', endpointsCliente)
+app.use('/paqueteria/tipos-envio', endpointsTipoEnvio)
+app.use('/paqueteria/envios', endpointsEnvios)
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log(`Servidor: mando escuchando en la frecuencia del puerto ${PORT}`);
 })
