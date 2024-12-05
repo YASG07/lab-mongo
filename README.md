@@ -2631,6 +2631,24 @@ networks:
         - subnet: 192.18.0.0/24
 ```
 
+### Dockerfile
+
+```Dockerfile
+FROM node
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm","start"]
+```
+
 ## Ejecutar la aplicación
 
 1. Levantar los contenedores mediante el archivo docker-compose.yml
