@@ -3,25 +3,79 @@
 version: '3.9'
 
 services:
-#Mongo
-  mongo_standalone:
+
+#node.js app
+  app:
+    image: yasg07/lab-mongo
+    container_name: node_app
+    ports:
+      -  "3000:3000"
+    environment:
+      -  URI_MONGO=mongodb://mongo_primary:27017,mongo_secondary01:27018,mongo_secondary02:27019/paqueteria
+      -  REDIS_HOST=rediscachedb
+      -  REDIS_PORT=6379
+      -  PORT=3000
+    depends_on:
+      -  mongo_primary
+      -  rediscachedb
+    volumes:
+      -  .:/usr/src/app
+      -  /usr/src/app/node_modules
+    command: ["sh", "-c", "sleep 30 && npm start"]
+    networks:
+      redlab:
+        ipv4_address: 192.18.0.7
+
+#Mongo primary
+  mongo_primary:
     image: mongo
-    container_name: mongodb01
+    container_name: mongo_primary
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    restart: always
     ports:
       -  "27017:27017"
     networks:
-      - redlab
+      redlab:
+        ipv4_address: 192.18.0.3
+
+#Mongo secondary 01
+  mongo_secondary01:
+    image: mongo
+    container_name: mongo_secondary01
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    restart: always
+    ports:
+      -  "27018:27017"
+    networks:
+      redlab:
+        ipv4_address: 192.18.0.4
+
+#Mongo secondary 02
+  mongo_secondary02:
+    image: mongo
+    container_name: mongo_secondary02
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    restart: always
+    ports:
+      -  "27019:27017"
+    networks:
+      redlab:
+        ipv4_address: 192.18.0.5
+  
 
   #redis-cache-database
   rediscachedb:
-    image: redis/redis-stack
-    container_name: rediscache
+    image: redis
+    container_name: rediscachedb
     ports:
       -  "6379:6379"
-      -  "8001:8001"
     networks:
-      - redlab
+      redlab:
+        ipv4_address: 192.18.0.6
 
 networks:
   redlab:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 192.18.0.0/24

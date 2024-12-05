@@ -30,6 +30,8 @@ app.use('/paqueteria/clientes', endpointsCliente)
 app.use('/paqueteria/tipos-envio', endpointsTipoEnvio)
 app.use('/paqueteria/envios', endpointsEnvios)
 
+app.use(logger)
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
